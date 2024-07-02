@@ -1,0 +1,125 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="shortcut icon" href="{% static "asset/images/favicon.ico" %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'asset/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+    .place-box  {
+        height: 320px;
+        width: 500px;
+        {% comment %} background-color: black; {% endcomment %}
+        position: relative;
+        left:400px;
+        top:12px;
+        text-align:center;
+    }
+    </style>
+      <!-- link for bootstrap icon-->
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg bg-light">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="/">Estore</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                          </li>
+                          <!-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Dropdown
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                          </li> -->
+                          <li class="nav-item">
+                            <a class="nav-link" href="/contact">Contact</a>
+                          </li>
+                          
+                          {% if user.is_authenticated  %}
+                          <li class="nav-item">
+                            <a class="nav-link" href="/viewcart">Cart</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                          </li>  
+                    
+                          {% else %}                   
+                          <li class="nav-item">
+                            <a class="nav-link" href="/register">Register</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                          </li>
+                          {% endif %}  
+                          
+                                                  
+                        </ul>
+                        <!-- <form class="d-flex" role="search">
+                          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                          <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form> -->
+                      </div>
+                    </div>
+                  </nav>
+            </div><!-- Navigation bar end-->
+        </div><!--Navigation row end-->
+        <!-- Header End-->
+    <!--main -->    
+    <div class='place-box'>
+     <img width='100px' src="{% static "asset/images/placed.png" %}" alt="img"><br><br>
+     <h1><strong>Order Placed Successfully!</strong></h1>
+     <h6>We've sent you an email with the Order details.</h6>
+    </div>
+     <!--end main -->
+
+     <!-- footer start-->
+<div class="row mt-5 bg-light">
+    <div class="col-md-4">
+      <h5>Address</h5> <hr>
+      2nd Floor,Landmark Building<br>
+      Near FC Road<br>
+      Shivaji Nagar - Pune<br><br>
+      <p><i class="bi bi-telephone-fill text-danger"></i> :9999999999</p>
+      <p><i class="bi bi-envelope-fill  text-danger"></i> :customer@gmail.com</p>
+    </div>
+    <div class="col-md-4">
+      <h5>Quick links</h5> <hr>
+      <p><a href="/" class="anchor">Home</a></p>
+      <p><a href="/about" class="anchor">About</a></p>
+      <p><a href="/contact" class="anchor">Contact</a></p>
+      <p><a href="/viewcart" class="anchor">Cart</a></p>
+    </div>
+    <div class="col-md-4">
+      <h5>Connect us</h5> <hr>
+      <h5><a href="http://www.facebook.com"><i class="bi bi-facebook  text-danger"></i></a></h5>
+      <h5><a href="http://www.twitter.com"><i class="bi bi-twitter  text-danger"></i></a></h5>
+      <h5><a href="http://www.instagram.com"><i class="bi bi-instagram  text-danger"></i></a></h5>
+      <h5><a href="http://www.linkedin.com"><i class="bi bi-linkedin  text-danger"></i></a></h5>
+    </div>
+  </div>
+  <!-- footer end-->
+
+</div><!-- container div end-->
+<script src="{% static 'asset/js/popper.min.js' %}"></script>
+<script src="{% static 'asset/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

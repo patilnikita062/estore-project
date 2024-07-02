@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'main' %}
+<!--main start-->
+<div class="row mt-5">
+    {% for x in products %}
+    <div class="col-md-6">
+        <img src="{{x.pimage.url}}" width="100%" height="600px" />
+    </div>
+    <div class="col-md-6">
+        <p><strong>Product Name: &nbsp; &nbsp;</strong>{{x.name}}</p>
+        <p><strong>Price: &nbsp; &nbsp;</strong>Rs{{x.price}}</p>
+        {% if x.cat == 1 %}
+        <p><strong>category: &nbsp; &nbsp;</strong>Mobile</p>
+        {% elif x.cat == 2 %}
+        <p><strong>category: &nbsp; &nbsp;</strong>Shoes</p>
+        {% else %}
+        <p><strong>category: &nbsp; &nbsp;</strong>Clothes</p>
+        {% endif %}   
+        <p><strong>Product Description: &nbsp; &nbsp;</strong>{{x.pdetails}}</p>
+        <a href="/addtocart/{{x.id}}"><button class="btn btn-danger">Add to cart</button></a>&nbsp;&nbsp;
+        <a href="/viewcart"><button class="btn btn-danger">view cart</button></a>&nbsp;&nbsp;
+        <a href="/"><button class="btn btn-danger">shop More</button></a>
+         
+        {% comment %} print successfully added {% endcomment %}
+        {% if success %}
+        <div class='alert alert-success'>{{success}}</div>
+        {% endif %}
+        
+        {% comment %} print product already exist {% endcomment %}
+        {% if msg %}
+        <div class='alert alert-danger'>{{msg}}</div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div><!--row end-->
+
+        
+<!--main end-->
+
+{% endblock 'main' %}

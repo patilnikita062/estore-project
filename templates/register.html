@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="shortcut icon" href="static/asset/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="static/asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/asset/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-5">
+                <a href="/" class="anchor">Home page</a>
+            </div>
+        </div><!--home page-->
+        <div class="row">
+            <div class="col-md-4 shadow mt-5 mx-auto">
+                <h2>Registration</h2>
+                {% if errormsg %}
+                <div class="alert alert-danger">
+                    {{errormsg}}
+                </div>
+                {% endif %}
+                <form action="/register" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                    <label for="input1" class="form-label"><strong>Username:</strong></label>
+                    <input type="email" name='uname' class="form-control" id="input1" placeholder="enter username"> 
+                    </div><!--username-->
+
+                    <div class="mb-3">
+                    <label for="input2" class="form-label"><strong>Password:</strong></label>
+                    <input type="password" name='upass' class="form-control" id="input2" placeholder="enter password">
+                    </div><!--password-->
+                    
+                    <div class="mb-3">
+                    <label for="input3" class="form-label"><strong>Confirm Password:</strong></label>
+                    <input type="password" name='ucpass' class="form-control" id="input3" placeholder="enter password">
+                    </div><!--confirm password-->
+
+                    <div class="mb-3">
+                        <input type="submit" value="Register" class="btn btn-primary">
+                        already Register?<a href="/login" class="anchor"> login</a>
+                    </div>
+                    {% if success %}
+                     <div class="alert alert-success">
+                         {{success}}
+                     </div>
+                    {% endif %}
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="static/asset/JS/bootstrap.min.js"></script>
+</body>
+</html>
